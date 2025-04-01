@@ -1,0 +1,14 @@
+import java.util.Random;
+
+public class Prediction {
+    public static void predict() {
+        String[] predictions = {"ты станешь QA!", "Найдешь баг!", "Завтра будет новый урок!"};
+        Random random = new Random();
+        int i = random.nextInt(predictions.length); // Используем длину массива
+        System.out.println("Предсказание: " + predictions[i]);
+    }
+
+    public static void main(String[] args) {
+        predict(); // Вызов метода для получения предсказания
+    }
+}
