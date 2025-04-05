@@ -1,0 +1,14 @@
+public class CalculatorTest {
+    public static void main(String[] args) {
+        int a = 11;
+        int b = 5;
+        int expectedResult = 55;
+        int actualResult = a * b;
+
+        if (actualResult == expectedResult) {
+            System.out.println("Тест пройден! ✅");
+        } else {
+            System.out.println("Тест провален ❌. Ожидалось " + expectedResult + ", но получилось " + actualResult);
+        }
+    }
+}
