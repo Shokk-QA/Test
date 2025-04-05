@@ -1,0 +1,37 @@
+import java.util.Random;
+import java.util.Scanner;
+
+class GuessNumber {
+    public static void main(String[] args) {
+        Random random = new Random();
+        int secretNumber = random.nextInt(10) + 1; // Секретное число от 1 до 10
+        Scanner scanner = new Scanner(System.in);
+        int attempts = 3; // Количество попыток
+        boolean hasWon = false; // Флаг для отслеживания победы
+
+        System.out.println("Угадай число от 1 до 10. У тебя " + attempts + " попытки.");
+
+        // Цикл для угадывания числа
+        for (int i = 1; i <= attempts; i++) {
+            System.out.print("Попытка " + i + ": ");
+            int userGuess = scanner.nextInt();
+
+            if (userGuess == secretNumber) {
+                System.out.println("Ты выиграл! 🎉");
+                hasWon = true;
+                break; // Выход из цикла, если пользователь угадал
+            } else if (userGuess < secretNumber) {
+                System.out.println("Загаданное число больше.");
+            } else {
+                System.out.println("Загаданное число меньше.");
+            }
+        }
+
+        // Проверка, если пользователь не угадал
+        if (!hasWon) {
+            System.out.println("Не угадал. Правильное число: " + secretNumber);
+        }
+
+        scanner.close(); // Закрываем Scanner
+    }
+}
