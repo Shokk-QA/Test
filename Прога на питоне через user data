@@ -1,0 +1,22 @@
+user_data = {
+    "name": input("Как тебя зовут? "),
+    "height": float(input("Какого ты роста (в метрах)? ")),
+    "age": int(input("Сколько вам лет? "))
+}
+
+print(f"\nПривет, {user_data['name']}!")
+
+if user_data['height'] >= 1.70:
+    print("Ты довольно высокий.")
+else:
+    print("Вырастешь еще.")
+
+if user_data['age'] >= 18:
+    print(f"Доступ открыт, {user_data['name']}.")
+else:
+    print(f"В доступе отказано, {user_data['name']}.")
+
+# Вывод всех данных
+print("\n=== Ваши данные ===")
+for key, value in user_data.items():
+    print(f"{key.capitalize()}: {value}")
