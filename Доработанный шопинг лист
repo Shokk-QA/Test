@@ -1,0 +1,43 @@
+print("Добавь продукты в список (для выхода введи 'стоп').")
+shopping_list = []  # Будет хранить словари с товарами и ценами
+
+while True:
+    item = input("Что купить? ")
+    if item.lower() == "стоп":
+        break
+    if any(product['name'] == item for product in shopping_list):
+        print("Этот товар уже есть в списке!")
+    else:
+        price = input(f"Сколько стоит {item}? ")
+        # Добавляем товар как словарь с именем и ценой
+        shopping_list.append({'name': item, 'price': price})
+
+print("\nТвой список покупок:")
+for i, product in enumerate(shopping_list, 1):
+    print(f"{i}. {product['name']} - {product['price']} руб.")
+
+# Дополнительный функционал
+while True:
+    choice = input("\n1 - Добавить товар\n2 - Удалить товар\n3 - Выйти\nВыберите: ")
+    
+    if choice == "1":
+        new_item = input("Введите товар: ")
+        if any(product['name'] == new_item for product in shopping_list):
+            print("Уже есть в списке!")
+        else:
+            price = input(f"Сколько стоит {new_item}? ")
+            shopping_list.append({'name': new_item, 'price': price})
+    elif choice == "2":
+        num = input("Номер товара для удаления: ")
+        if num.isdigit():
+            num = int(num) - 1
+            if 0 <= num < len(shopping_list):
+                shopping_list.pop(num)
+            else:
+                print("Неверный номер!")
+    elif choice == "3":
+        break
+
+print("\nИтоговый список:")
+for i, product in enumerate(shopping_list, 1):
+    print(f"{i}. {product['name']} - {product['price']} руб.")
