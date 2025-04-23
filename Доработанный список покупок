@@ -1,0 +1,40 @@
+shopping_list = []
+
+print("Добавь продукты в список (для выхода введи 'стоп').")
+while True:
+    item = input("Что купить? ")
+    if item.lower() == "стоп":
+        break
+    if item in shopping_list:
+        print("Этот товар уже есть в списке!")
+    else:
+        shopping_list.append(item)
+
+print("\nТвой список покупок:")
+for i, product in enumerate(shopping_list, 1):
+    print(f"{i}. {product}")
+
+# Дополнительный функционал
+while True:
+    choice = input("\n1 - Добавить товар\n2 - Удалить товар\n3 - Выйти\nВыберите: ")
+    
+    if choice == "1":
+        new_item = input("Введите товар: ")
+        if new_item in shopping_list:
+            print("Уже есть в списке!")
+        else:
+            shopping_list.append(new_item)
+    elif choice == "2":
+        num = input("Номер товара для удаления: ")
+        if num.isdigit():
+            num = int(num) - 1
+            if 0 <= num < len(shopping_list):
+                shopping_list.pop(num)
+            else:
+                print("Неверный номер!")
+    elif choice == "3":
+        break
+
+print("\nИтоговый список:")
+for i, product in enumerate(shopping_list, 1):
+    print(f"{i}. {product}")
